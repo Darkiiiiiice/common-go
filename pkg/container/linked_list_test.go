@@ -137,4 +137,17 @@ func Test_LinkedList(t *testing.T) {
 			tt.Errorf("origin = %+v, result = %+v", originSlice, resultSlice)
 		}
 	})
+
+	t.Run("Search", func(tt *testing.T) {
+		var originSlice = rand.RandomSliceInt(10, 0, 100)
+		var linkedList = InitLinkedList()
+		for _, v := range originSlice {
+			linkedList.InsertOfTail(v)
+		}
+
+		var r = linkedList.Search(originSlice[3])
+		if r != 3 {
+			tt.Errorf("origin = %+v, result = %+v", originSlice, r)
+		}
+	})
 }
